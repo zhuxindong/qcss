@@ -194,6 +194,9 @@ install_ssmgr(){
     sudo cp webgui.yml ~/.ssmgr/webgui.yml
     echo -e "[${green}提示${plain}] 配置文件拷贝成功"
 
+    sudo apt-get -y install redis-server
+    echo -e "[${green}提示${plain}] redis安装成功"
+
     sudo screen -dmS ssmgr ssmgr -c ~/.ssmgr/ss.yml
     sudo screen -dmS webgui ssmgr -c ~/.ssmgr/webgui.yml
 
