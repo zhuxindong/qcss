@@ -10,6 +10,27 @@ yellow='\033[0;33m'
 plain='\033[0m'
 
 
+os='ossystem'
+
+check_os() {
+    if [[ -f /etc/redhat-release ]]; then
+        os="centos"
+    elif cat /etc/issue | grep -Eqi "debian"; then
+        os="debian"
+    elif cat /etc/issue | grep -Eqi "ubuntu"; then
+        os="ubuntu"
+    elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
+        os="centos"
+    elif cat /proc/version | grep -Eqi "debian"; then
+        os="debian"
+    elif cat /proc/version | grep -Eqi "ubuntu"; then
+        os="ubuntu"
+    elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
+        os="centos"
+    fi
+}
+
+
 
 # 开启bbr加速start
 
@@ -95,6 +116,15 @@ reboot_os() {
     else
         echo -e "[${green}提示${plain}] 取消重启。其自行执行reboot命令。"
         exit 0
+    fi
+}
+
+check_bbr_status() {
+    local param=$(sysctl net.ipv4.tcp_available_congestion_control | awk '{print $3}')
+    if [[ x"${param}" == x"bbr" ]]; then
+        return 0
+    else
+        return 1
     fi
 }
 
