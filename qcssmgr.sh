@@ -183,11 +183,15 @@ install_ssmgr(){
     sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
-    cp ss.yml ~/.ssmgr/ss.yml
-    cp webgui.yml ~/.ssmgr/webgui.yml
+    sudo mkdir ~/.ssmgr
+    sudo cp ss.yml ~/.ssmgr/ss.yml
+    sudo cp webgui.yml ~/.ssmgr/webgui.yml
 
     sudo screen -dmS ssmgr ssmgr -c ~/.ssmgr/ss.yml
     sudo screen -dmS webgui ssmgr -c ~/.ssmgr/webgui.yml
+
+    echo -e "[${green}提示${plain}] shadowsocks-manager安装成功"
+    exit 0
 }
 
 
