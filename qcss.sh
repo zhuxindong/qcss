@@ -73,7 +73,7 @@ install_bbr() {
             		exit 1
         	fi
     	elif [[ x"${os}" == x"debian" || x"${os}" == x"ubuntu" ]]; then
-        	[[ ! -e "/usr/bin/wget" ]] && apt-get -y update && apt-get -y install wget
+        	[[ ! -e "/usr/bin/wget" ]] && apt-get -y -y update && apt-get -y -y install wget
         	#get_latest_version
         	#[ $? -ne 0 ] && echo -e "[${red}错误${plain}] 获取最新内核版本失败，请检查网络" && exit 1
        		 #wget -c -t3 -T60 -O ${deb_kernel_name} ${deb_kernel_url}
@@ -162,8 +162,8 @@ check_kernel_version() {
 install_ss() {
     echo -e "安装ss"
     echo -e "安装pip3"
-    sudo apt-get update 
-    sudo apt-get install python3-pip
+    sudo apt-get -y update 
+    sudo apt-get -y install python3-pip
     echo -e "安装shadowsocks"
     sudo pip3 install shadowsocks
     echo -e "安装配置文件"
