@@ -1,0 +1,17 @@
+{
+    "server":"0.0.0.0",
+    "server_port": 5200,
+    "password":"password",
+    "timeout":600,
+    "method":"aes-256-cfb",
+    "port_password":
+	{
+		"5200":"zhuxindong",
+		"5201":"zhuxindong",
+		"5202":"zhuxindong",
+		"5203":"zhuxindong",
+		"5204":"zhuxindong",
+		"5205":"zhuxindong",
+		"1314":"zhuxindong"
+	}
+}
