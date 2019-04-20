@@ -128,6 +128,7 @@ check_bbr_status() {
     fi
 }
 
+
 sysctl_config() {
     sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
     sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
