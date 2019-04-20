@@ -41,7 +41,14 @@ install_bbr() {
 	if [ $? -eq 0 ]
 	then
 		echo -e "[${green}提示${plain}] TCP BBR加速已经开启成功。"
-		exit 0
+        read -p "是否安装并配置shadowsocks? [y/n]" is_addss
+        if [[ ${is_reboot} == "y" || ${is_reboot} == "Y" ]]; then
+            echo "安装ss"
+        else
+            echo -e "[${green}提示${plain}] 取消安装。"
+            exit 0
+        fi
+
 	fi
 	check_kernel_version
 	if [ $? -eq 0 ]
@@ -49,6 +56,7 @@ install_bbr() {
 		echo -e "[${green}提示${plain}] 你的系统版本高于4.9，直接开启BBR加速。"
 		sysctl_config
 		echo -e "[${green}提示${plain}] TCP BBR加速开启成功"
+
 		exit 0
 	fi
 	    
@@ -135,6 +143,15 @@ sysctl_config() {
     echo "net.core.default_qdisc = fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
     sysctl -p >/dev/null 2>&1
+}
+
+check_kernel_version() {
+    local kernel_version=$(uname -r | cut -d- -f1)
+    if version_ge ${kernel_version} 4.9; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 # 开启bbr加速end
