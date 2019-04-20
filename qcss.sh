@@ -42,7 +42,7 @@ install_bbr() {
 	then
 		echo -e "[${green}提示${plain}] TCP BBR加速已经开启成功。"
         read -p "是否安装并配置shadowsocks? [y/n]" is_addss
-        if [[ ${is_reboot} == "y" || ${is_reboot} == "Y" ]]; then
+        if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
             echo "安装ss"
         else
             echo -e "[${green}提示${plain}] 取消安装。"
