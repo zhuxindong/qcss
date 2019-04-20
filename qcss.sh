@@ -162,7 +162,8 @@ check_kernel_version() {
 install_ss() {
     echo -e "安装ss"
     echo -e "安装pip3"
-    sudo apt-get -y update && sudo apt-get -y install python3-pip
+    sudo apt-get update 
+    sudo apt-get install python3-pip
     echo -e "安装shadowsocks"
     sudo pip3 install shadowsocks
     echo -e "安装配置文件"
