@@ -208,4 +208,4 @@ install_ssmgr(){
 
 # 开启bbr加速end
 
-install_bbr
+install_ss
