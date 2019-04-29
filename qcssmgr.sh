@@ -195,6 +195,7 @@ install_ssmgr(){
     echo -e "[${green}提示${plain}] 配置文件拷贝成功"
 
     sudo apt-get -y install redis-server
+    service redis start
     echo -e "[${green}提示${plain}] redis安装成功"
 
     sudo screen -dmS ssmgr ssmgr -c ~/.ssmgr/ss.yml

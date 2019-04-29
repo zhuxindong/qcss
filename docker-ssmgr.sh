@@ -49,6 +49,7 @@ install_ssmgr(){
     apt-get -y install redis-server
     echo -e "[${green}提示${plain}] redis安装成功"
 
+    apt-get -y install screen
     screen -dmS ssmgr ssmgr -c ~/.ssmgr/ss.yml
     screen -dmS webgui ssmgr -c ~/.ssmgr/webgui.yml
 
