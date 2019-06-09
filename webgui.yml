@@ -1,7 +1,7 @@
 type: m
  
 manager:
-  address: xxx:6001
+  address: 34.92.188.234:6001
   # 这里换成manager所在的服务器的ip
   password: '123456'
   # 这部分的端口和密码需要跟上一步 manager 参数里的保持一致，以连接 type s 部分监听的 tcp 端口
@@ -20,14 +20,14 @@ plugins:
     use: true
     type: 'smtp'
     username: '1072832254@qq.com'
-    password: '***'
+    password: 'xxjibmkdvdsmbgac'
     host: 'smtp.qq.com'
     # 这部分的邮箱和密码是用于发送注册验证邮件，重置密码邮件
   webgui:
     use: true
     host: '0.0.0.0'
     port: '80'
-    site: 'http://xxx'
+    site: 'http://34.92.188.234'
     # cdn: 'http://xxx.com' # 静态资源cdn地址，可省略
     # icon: 'icon.png' # 自定义首页图标，默认路径在 ~/.ssmgr 可省略
     # googleAnalytics: 'UA-xxxxxxxx-x' # Google Analytics ID，可省略
