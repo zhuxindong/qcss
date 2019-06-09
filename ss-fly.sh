@@ -104,7 +104,7 @@ install_bbr() {
 		echo -e "[${green}提示${plain}] 你的系统版本高于4.9，直接开启BBR加速。"
 		sysctl_config
 		echo -e "[${green}提示${plain}] TCP BBR加速开启成功"
-		exit 0
+		# exit 0
 	fi
 	    
 	if [[ x"${os}" == x"centos" ]]; then
