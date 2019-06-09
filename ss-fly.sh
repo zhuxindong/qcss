@@ -1,4 +1,4 @@
-#! binbash
+#! /bin/bash
 # Copyright (c) 
 
 red='033[0;31m'
@@ -27,37 +27,37 @@ wrong_para_prompt() {
     echo -e [${red}错误${plain}] 参数输入错误!$1
 }
 
-install_ss() {
-        if [[ $# -lt 1 ]]
-        then
-          wrong_para_prompt 请输入至少一个参数作为密码
-          return 1
-        fi
-        password=$1
-        if [[ $# -ge 2 ]]
-        then
-          port=$2
-        fi
-        if [[ $port -le 0  $port -gt 65535 ]]
-        then
-          wrong_para_prompt 端口号输入格式错误，请输入1到65535
-          exit 1
-        fi
-        check_os
-        check_dependency
-        download_files
-        ps -ef  grep -v grep  grep -i ssserver  devnull 2&1
-        if [ $ -eq 0 ]; then
-                ssserver -c etcshadowsocks.json -d stop
-        fi
-        generate_config $password $port
-        if [ ${os} == 'centos' ]
-        then
-                firewall_set
-        fi
-        install
-        cleanup
-}
+# install_ss() {
+#         if [[ $# -lt 1 ]]
+#         then
+#           wrong_para_prompt 请输入至少一个参数作为密码
+#           return 1
+#         fi
+#         password=$1
+#         if [[ $# -ge 2 ]]
+#         then
+#           port=$2
+#         fi
+#         if [[ $port -le 0  $port -gt 65535 ]]
+#         then
+#           wrong_para_prompt 端口号输入格式错误，请输入1到65535
+#           exit 1
+#         fi
+#         check_os
+#         check_dependency
+#         download_files
+#         ps -ef  grep -v grep  grep -i ssserver  devnull 2&1
+#         if [ $ -eq 0 ]; then
+#                 ssserver -c etcshadowsocks.json -d stop
+#         fi
+#         generate_config $password $port
+#         if [ ${os} == 'centos' ]
+#         then
+#                 firewall_set
+#         fi
+#         install
+#         cleanup
+# }
 
 uninstall_ss() {
         read -p 确定要卸载ss吗？(yn)  option
