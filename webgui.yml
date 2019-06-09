@@ -20,7 +20,7 @@ plugins:
     use: true
     type: 'smtp'
     username: '1072832254@qq.com'
-    password: 'xxjibmkdvdsmbgac'
+    password: ''
     host: 'smtp.qq.com'
     # 这部分的邮箱和密码是用于发送注册验证邮件，重置密码邮件
   webgui:
