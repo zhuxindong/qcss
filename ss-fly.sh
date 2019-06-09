@@ -96,7 +96,14 @@ install_bbr() {
 	if [ $? -eq 0 ]
 	then
 		echo -e "[${green}提示${plain}] TCP BBR加速已经开启成功。"
-		exit 0
+		# exit 0
+        read -p "是否安装并配置shadowsocks-manager? [y/n]" is_addss
+        if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
+            install_ss
+        else
+            echo -e "[${green}提示${plain}] 取消安装。"
+            exit 0
+        fi
 	fi
 	check_kernel_version
 	if [ $? -eq 0 ]
@@ -105,6 +112,13 @@ install_bbr() {
 		sysctl_config
 		echo -e "[${green}提示${plain}] TCP BBR加速开启成功"
 		# exit 0
+        read -p "是否安装并配置shadowsocks-manager? [y/n]" is_addss
+        if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
+            install_ss
+        else
+            echo -e "[${green}提示${plain}] 取消安装。"
+            exit 0
+        fi
 	fi
 	    
 	if [[ x"${os}" == x"centos" ]]; then
@@ -571,10 +585,3 @@ install_ssmgr(){
 
 
 install_bbr
-read -p "是否安装并配置shadowsocks-manager? [y/n]" is_addss
-        if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
-            install_ss
-        else
-            echo -e "[${green}提示${plain}] 取消安装。"
-            exit 0
-        fi
