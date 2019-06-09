@@ -59,35 +59,35 @@ wrong_para_prompt() {
 #         cleanup
 # }
 
-uninstall_ss() {
-        read -p 确定要卸载ss吗？(yn)  option
-        [ -z ${option} ] && option=n
-        if [ ${option} == y ]  [ ${option} == Y ]
-        then
-                ps -ef  grep -v grep  grep -i ssserver  devnull 2&1
-                if [ $ -eq 0 ]; then
-                        ssserver -c etcshadowsocks.json -d stop
-                fi
-                case $os in
-                        'ubuntu''debian')
-                                update-rc.d -f ss-fly remove
-                                ;;
-                        'centos')
-                                chkconfig --del ss-fly
-                                ;;
-                esac
-                rm -f etcshadowsocks.json
-                rm -f varrunshadowsocks.pid
-                rm -f varlogshadowsocks.log
-                if [ -f usrlocalshadowsocks_install.log ]; then
-                        cat usrlocalshadowsocks_install.log  xargs rm -rf
-                fi
-                echo ss卸载成功！
-        else
-                echo
-                echo 卸载取消
-        fi
-}
+# uninstall_ss() {
+#         read -p 确定要卸载ss吗？(yn)  option
+#         [ -z ${option} ] && option=n
+#         if [ ${option} == y ]  [ ${option} == Y ]
+#         then
+#                 ps -ef  grep -v grep  grep -i ssserver  devnull 2&1
+#                 if [ $ -eq 0 ]; then
+#                         ssserver -c etcshadowsocks.json -d stop
+#                 fi
+#                 case $os in
+#                         'ubuntu''debian')
+#                                 update-rc.d -f ss-fly remove
+#                                 ;;
+#                         'centos')
+#                                 chkconfig --del ss-fly
+#                                 ;;
+#                 esac
+#                 rm -f etcshadowsocks.json
+#                 rm -f varrunshadowsocks.pid
+#                 rm -f varlogshadowsocks.log
+#                 if [ -f usrlocalshadowsocks_install.log ]; then
+#                         cat usrlocalshadowsocks_install.log  xargs rm -rf
+#                 fi
+#                 echo ss卸载成功！
+#         else
+#                 echo
+#                 echo 卸载取消
+#         fi
+# }
 
 install_bbr() {
 	[[ -d procvz ]] && echo -e [${red}错误${plain}] 你的系统是OpenVZ架构的，不支持开启BBR。 && exit 1
