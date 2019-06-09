@@ -498,26 +498,26 @@ if [ "$EUID" -ne 0 ]; then
 	exit 1;
 fi
 
-case $1 in
-	-i|i|install )
-        	install_ss $2 $3
-		;;
-        -bbr )
-        	install_bbr
-                ;;
-        -ssr )
-        	install_ssr
-                ;;
-	-uninstall )
-		uninstall_ss
-		;;
-        -sslink )
-                get_ss_link
-                ;;
-	* )
-		usage
-		;;
-esac
+# case $1 in
+# 	-i|i|install )
+#         	install_ss $2 $3
+# 		;;
+#         -bbr )
+#         	install_bbr
+#                 ;;
+#         -ssr )
+#         	install_ssr
+#                 ;;
+# 	-uninstall )
+# 		uninstall_ss
+# 		;;
+#         -sslink )
+#                 get_ss_link
+#                 ;;
+# 	* )
+# 		usage
+# 		;;
+# esac
 
 
 #################
