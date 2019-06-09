@@ -477,21 +477,21 @@ get_config_value(){
     cat /etc/shadowsocks.json | grep "\"$1\":"|awk -F ":" '{print $2}'| sed 's/\"//g;s/,//g;s/ //g'
 }
 
-if [ "$#" -eq 0 ]; then
-	usage
-	exit 0
-fi
+# if [ "$#" -eq 0 ]; then
+# 	usage
+# 	exit 0
+# fi
 
-case $1 in
-	-h|h|help )
-		usage
-		exit 0;
-		;;
-	-v|v|version )
-		echo 'ss-fly Version 1.0, 2018-01-20, Copyright (c) 2018 flyzy2005'
-		exit 0;
-		;;
-esac
+# case $1 in
+# 	-h|h|help )
+# 		usage
+# 		exit 0;
+# 		;;
+# 	-v|v|version )
+# 		echo 'ss-fly Version 1.0, 2018-01-20, Copyright (c) 2018 flyzy2005'
+# 		exit 0;
+# 		;;
+# esac
 
 if [ "$EUID" -ne 0 ]; then
 	echo -e "[${red}错误${plain}] 必需以root身份运行，请使用sudo命令"
