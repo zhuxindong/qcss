@@ -576,6 +576,9 @@ install_ssmgr(){
     echo -e "[${green}提示${plain}] redis安装成功"
 
     sudo screen -dmS ssmgr ssmgr -c ~/.ssmgr/ss.yml
+
+    echo -e "[${green}提示${plain}] ss服务启动成功"
+
     sudo screen -dmS webgui ssmgr -c ~/.ssmgr/webgui.yml
 
     echo -e "[${green}提示${plain}] shadowsocks-manager安装成功"
