@@ -97,7 +97,7 @@ install_bbr() {
 	then
 		echo -e "[${green}提示${plain}] TCP BBR加速已经开启成功。"
 		# exit 0
-        read -p "是否安装并配置shadowsocks-manager? [y/n]" is_addss
+        read -p "是否安装并配置shadowsocks? [y/n]" is_addss
         if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
             install_ss
         else
@@ -112,7 +112,7 @@ install_bbr() {
 		sysctl_config
 		echo -e "[${green}提示${plain}] TCP BBR加速开启成功"
 		# exit 0
-        read -p "是否安装并配置shadowsocks-manager? [y/n]" is_addss
+        read -p "是否安装并配置shadowsocks? [y/n]" is_addss
         if [[ ${is_addss} == "y" || ${is_addss} == "Y" ]]; then
             install_ss
         else
